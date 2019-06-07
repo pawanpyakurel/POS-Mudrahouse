@@ -18,20 +18,20 @@ import com.model.TibetHouseModel;
 
 public class TibetHouseDao {
 
-//	String url ="jdbc:mysql://mudrahouse.com/thetibethouse";
+	String url ="jdbc:mysql://mudrahouse.com/thetibethouse";
 //	String url ="jdbc:mysql://192.168.1.253/thetibethouse";
 //    String url ="jdbc:mysql://192.168.1.253/mudrahouse";
 
-    String url ="jdbc:mysql://mudrahouse.com/mudrahouse";
+    //String url ="jdbc:mysql://mudrahouse.com/mudrahouse";
     
 	
 	String user ="shopizer";
 	String password ="SalesManager123!";
 	
 	public List<TibetHouseModel> getData() throws SQLException{
-//		String sql = "SELECT p.post_title as title,s.meta_value as SKU,cp.meta_value*100 as costprice FROM wp_posts as p LEFT JOIN wp_postmeta as s on s.post_id=p.ID and s.meta_key='_sku' left join wp_postmeta as cp on cp.post_id=p.ID and cp.meta_key='_price'  WHERE p.post_status='publish' and p.post_author='3' and p.post_type='product' limit 10";
+	String sql = "SELECT p.post_title as title,s.meta_value as SKU,cp.meta_value*100 as costprice FROM wp_posts as p LEFT JOIN wp_postmeta as s on s.post_id=p.ID and s.meta_key='_sku' left join wp_postmeta as cp on cp.post_id=p.ID and cp.meta_key='_price'  WHERE p.post_status='publish' and p.post_author='3' and p.post_type='product' limit 10";
 //		
-		String sql = "SELECT p.post_title as title,s.meta_value as SKU,cp.meta_value*100 as costprice FROM wp_posts as p LEFT JOIN wp_postmeta as s on s.post_id=p.ID and s.meta_key='_sku' left join wp_postmeta as cp on cp.post_id=p.ID and cp.meta_key='_price'  WHERE p.post_status='publish' and p.post_author='1' and p.post_type='product' limit 10";
+		//  String sql = "SELECT p.post_title as title,s.meta_value as SKU,cp.meta_value*100 as costprice FROM wp_posts as p LEFT JOIN wp_postmeta as s on s.post_id=p.ID and s.meta_key='_sku' left join wp_postmeta as cp on cp.post_id=p.ID and cp.meta_key='_price'  WHERE p.post_status='publish' and p.post_author='1' and p.post_type='product' limit 10";
 		
 		
 		List<TibetHouseModel> list = new ArrayList<TibetHouseModel>();
@@ -55,9 +55,9 @@ public class TibetHouseDao {
 		return list;
 	}
 	public int getInventoryCount() throws SQLException {
-//		String sql = "SELECT count(post_author) as count FROM `wp_posts` WHERE `post_author`=3 and post_status='publish'";
+	String sql = "SELECT count(post_author) as count FROM `wp_posts` WHERE `post_author`=3 and post_status='publish'";
 //		
-		String sql = "SELECT count(post_author) as count FROM `wp_posts` WHERE `post_author`=1 and post_status='publish'";
+		//String sql = "SELECT count(post_author) as count FROM `wp_posts` WHERE `post_author`=1 and post_status='publish'";
 		int totalcount = 0;
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
@@ -74,9 +74,9 @@ public class TibetHouseDao {
 		return totalcount;
 	}
 	public long getTotalCostPrice() throws SQLException {
-//		String sql = "SELECT sum(cp.meta_value)*50 as costprice FROM wp_posts as p LEFT JOIN wp_postmeta as s on s.post_id=p.ID and s.meta_key='_sku' left join wp_postmeta as cp on cp.post_id=p.ID and cp.meta_key='_price' WHERE p.post_status='publish' and p.post_author='3' and p.post_type='product'";
+		String sql = "SELECT sum(cp.meta_value)*50 as costprice FROM wp_posts as p LEFT JOIN wp_postmeta as s on s.post_id=p.ID and s.meta_key='_sku' left join wp_postmeta as cp on cp.post_id=p.ID and cp.meta_key='_price' WHERE p.post_status='publish' and p.post_author='3' and p.post_type='product'";
 //		
-		String sql = "SELECT sum(cp.meta_value)*50 as costprice FROM wp_posts as p LEFT JOIN wp_postmeta as s on s.post_id=p.ID and s.meta_key='_sku' left join wp_postmeta as cp on cp.post_id=p.ID and cp.meta_key='_price' WHERE p.post_status='publish' and p.post_author='1' and p.post_type='product'";
+		//  String sql = "SELECT sum(cp.meta_value)*50 as costprice FROM wp_posts as p LEFT JOIN wp_postmeta as s on s.post_id=p.ID and s.meta_key='_sku' left join wp_postmeta as cp on cp.post_id=p.ID and cp.meta_key='_price' WHERE p.post_status='publish' and p.post_author='1' and p.post_type='product'";
 		long totalCostPrice = 0;
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
@@ -93,9 +93,9 @@ public class TibetHouseDao {
 		return totalCostPrice;	
 	}
 	public long getTotalSellingPrice() throws SQLException {
-//		String sql = "SELECT sum(cp.meta_value) as sellingprice FROM wp_posts as p LEFT JOIN wp_postmeta as s on s.post_id=p.ID and s.meta_key='_sku' left join wp_postmeta as cp on cp.post_id=p.ID and cp.meta_key='_price' WHERE p.post_status='publish' and p.post_author='3' and p.post_type='product'";
+	String sql = "SELECT sum(cp.meta_value) as sellingprice FROM wp_posts as p LEFT JOIN wp_postmeta as s on s.post_id=p.ID and s.meta_key='_sku' left join wp_postmeta as cp on cp.post_id=p.ID and cp.meta_key='_price' WHERE p.post_status='publish' and p.post_author='3' and p.post_type='product'";
 //		
-		String sql = "SELECT sum(cp.meta_value) as sellingprice FROM wp_posts as p LEFT JOIN wp_postmeta as s on s.post_id=p.ID and s.meta_key='_sku' left join wp_postmeta as cp on cp.post_id=p.ID and cp.meta_key='_price' WHERE p.post_status='publish' and p.post_author='1' and p.post_type='product'";
+	//	String sql = "SELECT sum(cp.meta_value) as sellingprice FROM wp_posts as p LEFT JOIN wp_postmeta as s on s.post_id=p.ID and s.meta_key='_sku' left join wp_postmeta as cp on cp.post_id=p.ID and cp.meta_key='_price' WHERE p.post_status='publish' and p.post_author='1' and p.post_type='product'";
 		long totalSellingPrice = 0;
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
@@ -112,9 +112,9 @@ public class TibetHouseDao {
 		return totalSellingPrice;	
 	}
 	public int getSoldQuantity() throws SQLException {
-//		String sql = "SELECT count(cp.meta_value) as soldquantity FROM wp_posts as p LEFT JOIN wp_postmeta as s on s.post_id=p.ID and s.meta_key='_sku' left join wp_postmeta as cp on cp.post_id=p.ID and cp.meta_key='_stock_status' WHERE cp.meta_value='outofstock' and p.post_status='publish' and p.post_author='3' and p.post_type='product'";
+	String sql = "SELECT count(cp.meta_value) as soldquantity FROM wp_posts as p LEFT JOIN wp_postmeta as s on s.post_id=p.ID and s.meta_key='_sku' left join wp_postmeta as cp on cp.post_id=p.ID and cp.meta_key='_stock_status' WHERE cp.meta_value='outofstock' and p.post_status='publish' and p.post_author='3' and p.post_type='product'";
 //		
-		String sql = "SELECT count(cp.meta_value) as soldquantity FROM wp_posts as p LEFT JOIN wp_postmeta as s on s.post_id=p.ID and s.meta_key='_sku' left join wp_postmeta as cp on cp.post_id=p.ID and cp.meta_key='_stock_status' WHERE cp.meta_value='outofstock' and p.post_status='publish' and p.post_author='1' and p.post_type='product'";
+		//String sql = "SELECT count(cp.meta_value) as soldquantity FROM wp_posts as p LEFT JOIN wp_postmeta as s on s.post_id=p.ID and s.meta_key='_sku' left join wp_postmeta as cp on cp.post_id=p.ID and cp.meta_key='_stock_status' WHERE cp.meta_value='outofstock' and p.post_status='publish' and p.post_author='1' and p.post_type='product'";
 		
 		int totalSoldQuantity = 0;
 		try {
@@ -133,9 +133,9 @@ public class TibetHouseDao {
 	}
 	public List<TibetHouseModel> getDataByMonth(int i) throws SQLException{
 		List<TibetHouseModel> list = new ArrayList<TibetHouseModel>();
-//		String sql ="SELECT p.post_title as title,s.meta_value as SKU,cp.meta_value*50 as costprice FROM wp_posts as p LEFT JOIN wp_postmeta as s on s.post_id=p.ID and s.meta_key='_sku' left join wp_postmeta as cp on cp.post_id=p.ID and cp.meta_key='_price' left join wp_postmeta as q on q.post_id=p.ID and q.meta_key='_stock_status' WHERE q.meta_value='outofstock' and p.post_status='publish' and p.post_author='3' and p.post_type='product' and month(post_modified)='"+i+"' limit 10";
+	String sql ="SELECT p.post_title as title,s.meta_value as SKU,cp.meta_value*50 as costprice FROM wp_posts as p LEFT JOIN wp_postmeta as s on s.post_id=p.ID and s.meta_key='_sku' left join wp_postmeta as cp on cp.post_id=p.ID and cp.meta_key='_price' left join wp_postmeta as q on q.post_id=p.ID and q.meta_key='_stock_status' WHERE q.meta_value='outofstock' and p.post_status='publish' and p.post_author='3' and p.post_type='product' and month(post_modified)='"+i+"' limit 10";
 //		
-		String sql ="SELECT p.post_title as title,s.meta_value as SKU,cp.meta_value*50 as costprice FROM wp_posts as p LEFT JOIN wp_postmeta as s on s.post_id=p.ID and s.meta_key='_sku' left join wp_postmeta as cp on cp.post_id=p.ID and cp.meta_key='_price' left join wp_postmeta as q on q.post_id=p.ID and q.meta_key='_stock_status' WHERE q.meta_value='outofstock' and p.post_status='publish' and p.post_author='1' and p.post_type='product' and month(post_modified)='"+i+"' limit 10";
+		//String sql ="SELECT p.post_title as title,s.meta_value as SKU,cp.meta_value*50 as costprice FROM wp_posts as p LEFT JOIN wp_postmeta as s on s.post_id=p.ID and s.meta_key='_sku' left join wp_postmeta as cp on cp.post_id=p.ID and cp.meta_key='_price' left join wp_postmeta as q on q.post_id=p.ID and q.meta_key='_stock_status' WHERE q.meta_value='outofstock' and p.post_status='publish' and p.post_author='1' and p.post_type='product' and month(post_modified)='"+i+"' limit 10";
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 			Connection con = DriverManager.getConnection(url, user, password);
@@ -156,9 +156,9 @@ public class TibetHouseDao {
 	}
 	public List<TibetHouseModel> getDataByYear(int j) throws SQLException{
 		List<TibetHouseModel> list = new ArrayList<TibetHouseModel>();
-//		String sql ="SELECT p.post_title as title,s.meta_value as SKU,cp.meta_value*50 as costprice FROM wp_posts as p LEFT JOIN wp_postmeta as s on s.post_id=p.ID and s.meta_key='_sku' left join wp_postmeta as cp on cp.post_id=p.ID and cp.meta_key='_price' left join wp_postmeta as q on q.post_id=p.ID and q.meta_key='_stock_status' WHERE q.meta_value='outofstock' and p.post_status='publish' and p.post_author='3' and p.post_type='product' and year(post_modified)='"+j+"' limit 10";
-//		
 		String sql ="SELECT p.post_title as title,s.meta_value as SKU,cp.meta_value*50 as costprice FROM wp_posts as p LEFT JOIN wp_postmeta as s on s.post_id=p.ID and s.meta_key='_sku' left join wp_postmeta as cp on cp.post_id=p.ID and cp.meta_key='_price' left join wp_postmeta as q on q.post_id=p.ID and q.meta_key='_stock_status' WHERE q.meta_value='outofstock' and p.post_status='publish' and p.post_author='3' and p.post_type='product' and year(post_modified)='"+j+"' limit 10";
+//		
+	//	String sql ="SELECT p.post_title as title,s.meta_value as SKU,cp.meta_value*50 as costprice FROM wp_posts as p LEFT JOIN wp_postmeta as s on s.post_id=p.ID and s.meta_key='_sku' left join wp_postmeta as cp on cp.post_id=p.ID and cp.meta_key='_price' left join wp_postmeta as q on q.post_id=p.ID and q.meta_key='_stock_status' WHERE q.meta_value='outofstock' and p.post_status='publish' and p.post_author='3' and p.post_type='product' and year(post_modified)='"+j+"' limit 10";
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 			Connection con = DriverManager.getConnection(url, user, password);
@@ -179,9 +179,9 @@ public class TibetHouseDao {
 	}
 	public List<TibetHouseModel> getDataByDay(String k) throws SQLException{
 		List<TibetHouseModel> list = new ArrayList<TibetHouseModel>();
-//		String sql ="SELECT p.post_title as title,s.meta_value as SKU,cp.meta_value*50 as costprice FROM wp_posts as p LEFT JOIN wp_postmeta as s on s.post_id=p.ID and s.meta_key='_sku' left join wp_postmeta as cp on cp.post_id=p.ID and cp.meta_key='_price' left join wp_postmeta as q on q.post_id=p.ID and q.meta_key='_stock_status' WHERE q.meta_value='outofstock' and p.post_status='publish' and p.post_author='3' and p.post_type='product' and date(post_modified)='"+k+"' limit 10";
+	String sql ="SELECT p.post_title as title,s.meta_value as SKU,cp.meta_value*50 as costprice FROM wp_posts as p LEFT JOIN wp_postmeta as s on s.post_id=p.ID and s.meta_key='_sku' left join wp_postmeta as cp on cp.post_id=p.ID and cp.meta_key='_price' left join wp_postmeta as q on q.post_id=p.ID and q.meta_key='_stock_status' WHERE q.meta_value='outofstock' and p.post_status='publish' and p.post_author='3' and p.post_type='product' and date(post_modified)='"+k+"' limit 10";
 //		
-		String sql ="SELECT p.post_title as title,s.meta_value as SKU,cp.meta_value*50 as costprice FROM wp_posts as p LEFT JOIN wp_postmeta as s on s.post_id=p.ID and s.meta_key='_sku' left join wp_postmeta as cp on cp.post_id=p.ID and cp.meta_key='_price' left join wp_postmeta as q on q.post_id=p.ID and q.meta_key='_stock_status' WHERE q.meta_value='outofstock' and p.post_status='publish' and p.post_author='1' and p.post_type='product' and date(post_modified)='"+k+"' limit 10";
+	//	String sql ="SELECT p.post_title as title,s.meta_value as SKU,cp.meta_value*50 as costprice FROM wp_posts as p LEFT JOIN wp_postmeta as s on s.post_id=p.ID and s.meta_key='_sku' left join wp_postmeta as cp on cp.post_id=p.ID and cp.meta_key='_price' left join wp_postmeta as q on q.post_id=p.ID and q.meta_key='_stock_status' WHERE q.meta_value='outofstock' and p.post_status='publish' and p.post_author='1' and p.post_type='product' and date(post_modified)='"+k+"' limit 10";
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 			Connection con = DriverManager.getConnection(url, user, password);
@@ -266,9 +266,9 @@ public class TibetHouseDao {
 	
 	public List<TibetHouseModel> posList(String sku) throws SQLException{
 		//String sql = "SELECT p.post_title as title,s.meta_value as SKU,cp.meta_value*50 as costprice FROM wp_posts as p LEFT JOIN wp_postmeta as s on s.post_id=p.ID and s.meta_key='_sku' left join wp_postmeta as cp on cp.post_id=p.ID and cp.meta_key='_price'  WHERE p.post_status='publish' and p.post_author='3' and p.post_type='product' and s.meta_value=?";
-//		String sql = "SELECT p.post_title as title,s.meta_value as SKU,cp.meta_value*50 as costprice, stat.meta_value as stockstatus FROM wp_posts as p LEFT JOIN wp_postmeta as s on s.post_id=p.ID and s.meta_key='_sku' left join wp_postmeta as cp on cp.post_id=p.ID and cp.meta_key='_price' left join wp_postmeta as stat on stat.post_id=p.ID and stat.meta_key='_stock_status' WHERE p.post_status='publish' and p.post_author='3' and p.post_type='product' and s.meta_value=?";
+		String sql = "SELECT p.post_title as title,s.meta_value as SKU,cp.meta_value*50 as costprice, stat.meta_value as stockstatus FROM wp_posts as p LEFT JOIN wp_postmeta as s on s.post_id=p.ID and s.meta_key='_sku' left join wp_postmeta as cp on cp.post_id=p.ID and cp.meta_key='_price' left join wp_postmeta as stat on stat.post_id=p.ID and stat.meta_key='_stock_status' WHERE p.post_status='publish' and p.post_author='3' and p.post_type='product' and s.meta_value=?";
 		
-		String sql = "SELECT p.post_title as title,s.meta_value as SKU,cp.meta_value*50 as costprice, stat.meta_value as stockstatus FROM wp_posts as p LEFT JOIN wp_postmeta as s on s.post_id=p.ID and s.meta_key='_sku' left join wp_postmeta as cp on cp.post_id=p.ID and cp.meta_key='_price' left join wp_postmeta as stat on stat.post_id=p.ID and stat.meta_key='_stock_status' WHERE p.post_status='publish' and p.post_author='1' and p.post_type='product' and s.meta_value=?";
+		// String sql = "SELECT p.post_title as title,s.meta_value as SKU,cp.meta_value*50 as costprice, stat.meta_value as stockstatus FROM wp_posts as p LEFT JOIN wp_postmeta as s on s.post_id=p.ID and s.meta_key='_sku' left join wp_postmeta as cp on cp.post_id=p.ID and cp.meta_key='_price' left join wp_postmeta as stat on stat.post_id=p.ID and stat.meta_key='_stock_status' WHERE p.post_status='publish' and p.post_author='1' and p.post_type='product' and s.meta_value=?";
 		List<TibetHouseModel> list = new ArrayList<TibetHouseModel>();
 		
 			try {
